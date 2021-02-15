@@ -8,7 +8,7 @@ public class MalPanel extends JPanel {
 
 	public MalPanel(GitterSpiel frame) {
 		this.frame = frame;
-		GitterSpiel.inizcell();
+		frame.inizcell();
 	}
 
 	public void paintComponent(Graphics g) {
@@ -18,7 +18,7 @@ public class MalPanel extends JPanel {
 		}
 		for (int i = 0; i < 61; i++) {
 			for (int j = 0; j < 61; j++) {
-				if (GitterSpiel.cell[i][j] == 1)
+				if (frame.cell[i][j] == 1)
 					g.fillRect(i * 20, j * 20, 20, 20);
 			}
 		}

@@ -15,15 +15,15 @@ import javax.swing.border.EmptyBorder;
 public class GitterSpiel extends JFrame {
 	int width = this.getWidth();
 	int height = this.getHeight();
-	static int px = 20;
-	static int py = 20;
+	int px = 20;
+	int py = 20;
 	Color farbe = Color.black;
 	int punkte = 0;
 	int i = 20;
-	static int hindernissx = 0;
-	static int hindernissy = 0;
+	int hindernissx = 0;
+	int hindernissy = 0;
 	private JPanel contentPane;
-	static int cell[][] = new int[61][61];
+	int cell[][] = new int[61][61];
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -140,7 +140,7 @@ public class GitterSpiel extends JFrame {
 
 	}
 
-	static void inizcell() {
+	public void inizcell() {
 		for (int i = 0; i < 61; i++) {
 			for (int j = 0; j < 61; j++) {
 				cell[i][j] = 0;
@@ -149,7 +149,9 @@ public class GitterSpiel extends JFrame {
 	}
 
 	protected void nachLinksGehen(int weiter) {
-		if (cell[((px - 130) / 20+20)][(py - 40 / 20)+20] != 1)
+		System.out.println(px);
+		System.out.println(py);
+		if (cell[(px - weiter) / 20][py / 20] == 0)
 			if (px - weiter > 0)
 				px = px - weiter;
 			else
