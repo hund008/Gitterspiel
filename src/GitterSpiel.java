@@ -149,8 +149,7 @@ public class GitterSpiel extends JFrame {
 	}
 
 	protected void nachLinksGehen(int weiter) {
-		System.out.println(px);
-		System.out.println(py);
+
 		if (cell[(px - weiter) / 20][py / 20] == 0)
 			if (px - weiter > 0)
 				px = px - weiter;
@@ -166,29 +165,32 @@ public class GitterSpiel extends JFrame {
 	}
 
 	protected void nachUnten(int weiter) {
-		if (py + 20 + weiter <= 840)
-			py = py + weiter;
-		else
-			py = 20;
+		if (cell[px / 20][(py + weiter) / 20] == 0)
+			if (py + 20 + weiter <= 840)
+				py = py + weiter;
+			else
+				py = 20;
 		player();
 		repaint();
 
 	}
 
 	public void nachRechtsGehen(int weiter) {
-		if (px + 20 + weiter <= 1040)
-			px = px + weiter;
-		else
-			px = 20;
+		if (cell[(px + weiter) / 20][py / 20] == 0)
+			if (px + 20 + weiter <= 1040)
+				px = px + weiter;
+			else
+				px = 20;
 		player();
 		repaint();
 	}
 
 	public void nachOben(int weiter) {
-		if (py + 20 - weiter >= 40)
-			py = py - weiter;
-		else
-			py = 820;
+		if (cell[px / 20][(py - weiter) / 20] == 0)
+			if (py + 20 - weiter >= 40)
+				py = py - weiter;
+			else
+				py = 820;
 		player();
 		repaint();
 	}
